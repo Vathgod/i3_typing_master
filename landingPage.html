@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Typing Master</title>
+    <style>
+      /* Internal CSS for the Home Page */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f8ff; /* AliceBlue - light and welcoming */
+        color: #333;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+
+      .navbar {
+        background-color: #4a90e2; /* A pleasant blue */
+        padding: 15px 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar .logo {
+        font-size: 1.8em;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .navbar ul li {
+        margin-left: 20px;
+      }
+
+      .navbar ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .navbar ul li a:hover,
+      .navbar ul li a.active {
+        background-color: #357abd; /* Darker blue for hover/active */
+      }
+
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://placehold.co/1200x600/77AADD/FFFFFF?text=Typing+Practice+Background&font=arial")
+            no-repeat center center/cover;
+        /* Placeholder image, replace with your own */
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-section h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-section p {
+        font-size: 1.4em;
+        margin-bottom: 30px;
+        max-width: 600px;
+      }
+
+      .hero-section .cta-button {
+        background-color: #ff9800; /* Orange for call to action */
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 1.2em;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-section .cta-button:hover {
+        background-color: #e68900; /* Darker orange */
+        transform: translateY(-2px);
+      }
+
+      .features-section {
+        padding: 60px 20px;
+        text-align: center;
+        background-color: #ffffff;
+      }
+
+      .features-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        color: #333;
+      }
+
+      .features-grid {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .feature-item {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        width: calc(33.333% - 40px); /* Adjust for gap */
+        min-width: 250px; /* Minimum width for smaller screens before wrapping */
+        box-sizing: border-box;
+      }
+
+      .feature-item img.icon {
+        /* Placeholder for icon styling */
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+        background-color: #ddd; /* Placeholder background */
+        border-radius: 50%;
+        display: inline-block;
+        /* In a real scenario, you'd use actual <img> or SVG icons */
+      }
+
+      .feature-item h3 {
+        font-size: 1.5em;
+        color: #4a90e2;
+        margin-bottom: 10px;
+      }
+
+      .feature-item p {
+        font-size: 1em;
+        color: #555;
+      }
+
+      .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 0; /* No margin if features section is the last content */
+      }
+      .footer p {
+        margin: 5px 0;
+      }
+      .footer a {
+        color: #ff9800;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          padding: 15px;
+        }
+        .navbar .logo {
+          margin-bottom: 10px;
+        }
+        .navbar ul {
+          flex-direction: column;
+          width: 100%;
+        }
+        .navbar ul li {
+          margin: 5px 0;
+          text-align: center;
+        }
+        .navbar ul li a {
+          display: block;
+        }
+
+        .hero-section h1 {
+          font-size: 2.2em;
+        }
+        .hero-section p {
+          font-size: 1.1em;
+        }
+        .features-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+        .feature-item {
+          width: 80%;
+          max-width: 350px; /* Ensure items don't get too wide */
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a href="#" class="logo">TypingMaster</a>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="typingTEst.html">Typing Test</a></li>
+        <!-- Link to your typing test page -->
+        <li><a href="about.html">About Us</a></li>
+        <!-- Link to your about page -->
+        <li><a href="loginPage.html">Login</a></li>
+        <!-- Link to your login page -->
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1>Master Your Keyboard Skills</h1>
+      <p>
+        Improve your typing speed and accuracy with our engaging lessons and
+        practice tests. Start your journey to becoming a typing pro today!
+      </p>
+      <a href="#" class="cta-button">Start Typing Test Now</a>
+      <!-- Link to your typing test page -->
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <h2>Why Choose TypingMaster?</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <!-- Placeholder for an icon. You can use <img> or an icon font like Font Awesome -->
+          <img
+            src="https://placehold.co/60x60/4CAF50/FFFFFF?text=✔&font=arial"
+            alt="Interactive Icon"
+            class="icon"
+          />
+          <h3>Interactive Lessons</h3>
+          <p>
+            Engaging exercises designed to make learning fun and effective for
+            all skill levels.
+          </p>
+        </div>
+        <div class="feature-item">
+          <img
+            src="https://placehold.co/60x60/2196F3/FFFFFF?text=📊&font=arial"
+            alt="Progress Icon"
+            class="icon"
+          />
+          <h3>Track Your Progress</h3>
+          <p>
+            Monitor your WPM, accuracy, and improvement over time with detailed
+            statistics.
+          </p>
+        </div>
+        <div class="feature-item">
+          <img
+            src="https://placehold.co/60x60/FFC107/FFFFFF?text=🎯&font=arial"
+            alt="Variety Icon"
+            class="icon"
+          />
+          <h3>Variety of Texts</h3>
+          <p>
+            Practice with a wide range of texts to keep your typing sessions
+            interesting and challenging.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        &copy; <span id="currentYear"></span> TypingMaster. All Rights Reserved.
+      </p>
+      <p>Designed to help you type faster and smarter.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+      // Script to set the current year in the footer
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
