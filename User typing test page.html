@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Typing Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f4f4f4;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      #test-text {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        background: #e9ecef;
+        padding: 15px;
+        border-radius: 5px;
+      }
+      #user-input {
+        width: 100%;
+        font-size: 1.1em;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      #result {
+        font-weight: bold;
+        margin-top: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1em;
+        border: none;
+        border-radius: 5px;
+        background: #007bff;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:disabled {
+        background: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>User Typing Test</h2>
+      <div id="test-text">The quick brown fox jumps over the lazy dog.</div>
+      <textarea
+        id="user-input"
+        rows="4"
+        placeholder="Start typing here..."
+      ></textarea>
+      <br />
+      <button id="start-btn">Start Test</button>
+      <button id="reset-btn" disabled>Reset</button>
+      <div id="result"></div>
+    </div>
+    <script>
+      const testText = document.getElementById("test-text").innerText;
+      const userInput = document.getElementById("user-input");
+      const startBtn = document.getElementById("start-btn");
+      const resetBtn = document.getElementById("reset-btn");
+      const result = document.getElementById("result");
+      let startTime,
+        endTime,
+        timerRunning = false;
+
+      startBtn.onclick = function () {
+        userInput.value = "";
+        userInput.disabled = false;
+        userInput.focus();
+        result.textContent = "";
+        startBtn.disabled = true;
+        resetBtn.disabled = false;
+        timerRunning = true;
+        startTime = new Date();
+      };
+
+      userInput.addEventListener("input", function () {
+        if (!timerRunning) return;
+        if (userInput.value === testText) {
+          endTime = new Date();
+          timerRunning = false;
+          userInput.disabled = true;
+          const timeTaken = (endTime - startTime) / 1000;
+          const words = testText.split(" ").length;
+          const wpm = Math.round((words / timeTaken) * 60);
+          result.textContent = `Well done! Time: ${timeTaken.toFixed(
+            2
+          )}s | WPM: ${wpm}`;
+          startBtn.disabled = false;
+        }
+      });
+
+      resetBtn.onclick = function () {
+        userInput.value = "";
+        userInput.disabled = true;
+        result.textContent = "";
+        startBtn.disabled = false;
+        resetBtn.disabled = true;
+        timerRunning = false;
+      };
+
+      // Disable input initially
+      userInput.disabled = true;
+    </script>
+  </body>
+</html>
